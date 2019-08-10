@@ -70,7 +70,6 @@ function Header() {
                             }
                             </DropMenu>
                         )}
-                        
                     </Motion>
                 }
             </Container>
