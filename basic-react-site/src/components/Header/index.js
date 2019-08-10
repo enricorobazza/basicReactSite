@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Container, LeftMenu, RightMenu, MenuOption, Logo, MenuIcon, MenuIconLink, DropMenu, DropMenuOption, TopMenu} from './styles.js';
 import {screenSizes} from '../../settings';
+import {Motion, spring} from 'react-motion';
 
 function Header() {
 
@@ -57,15 +58,20 @@ function Header() {
                 </TopMenu>
                 
                 {menuDroped && 
-                    <DropMenu> 
-                        {
-                            itens.map((item) => {
-                                return (
-                                    <DropMenuOption href={"#"+item} key={item}>{item}</DropMenuOption>
-                                );
-                            })
-                        }
-                    </DropMenu>
+                    <Motion defaultStyle={{marginTop: 0, opacity:0}} style={{marginTop: spring(60), opacity: spring(100)}}>
+                        {(style)=>(
+                            <DropMenu style={{height: `${style.marginTop}vh`, opacity: style.opacity}}> 
+                            {
+                                itens.map((item) => {
+                                    return (
+                                        <DropMenuOption href={"#"+item} key={item}>{item}</DropMenuOption>
+                                    );
+                                })
+                            }
+                            </DropMenu>
+                        )}
+                        
+                    </Motion>
                 }
             </Container>
 

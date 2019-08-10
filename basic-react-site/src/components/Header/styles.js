@@ -18,6 +18,7 @@ export const TopMenu = styled.div`
     flex-direction:row;
     width:100%;
     padding: 10px 0;
+    z-index:5;
 `;
 
 const MenuWrapper = styled.div`
@@ -87,6 +88,7 @@ export const DropMenu = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    z-index:1;
 `;
 
 export const DropMenuOption = styled(noLinkStyle)`
