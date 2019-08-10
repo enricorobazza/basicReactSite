@@ -3,13 +3,18 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     height:2000px;
-    background-color:#ccc;
+    background-color:${props => props.color || "black"};
 `;
 
 function Content(){
+
     return(
         <>
-            <Container>Alo</Container>
+            <Container color={"yellow"}>Alo</Container>
+            <Container color={"pink"}>Alo</Container>
+            <Container color={"green"}>Alo</Container>
+            <Container color={"pink"}>Alo</Container>
+            <Container color={"green"}>Alo</Container>
         </>
     );
 }

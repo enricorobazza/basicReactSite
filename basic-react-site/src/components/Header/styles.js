@@ -1,25 +1,33 @@
 import styled from 'styled-components';
+import { Menu } from '@material-ui/icons';
+import { screenSizes } from './../../settings';
 
 export const Container = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #fff;
     position:fixed;
     width:100%;
     box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
     font-weight: 400;
     font-size: 12px;
+`;
+
+export const TopMenu = styled.div`
+    display:flex;
+    flex-direction:row;
+    width:100%;
     padding: 10px 0;
 `;
 
 const MenuWrapper = styled.div`
     margin: 0 80px;
 
-    @media(max-width:1100px){
+    @media(max-width:${screenSizes.large}px){
         margin: 0 40px;
     }
 
-    @media(max-width:800px){
+    @media(max-width:${screenSizes.medium}px){
         margin: 0 20px;
     }
 `;
@@ -35,24 +43,58 @@ export const RightMenu = styled(MenuWrapper)`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @media(max-width:${screenSizes.small}px){
+        justify-content: flex-end;
+    }
 `;
 
-export const MenuOption = styled.a`
-    padding: 10px 20px;
-    position:relative;
-    white-space: nowrap;
+const noLinkStyle = styled.a`
     text-decoration:none;
     color: black;
 
     &:hover{
         color: #3e62a8;
     }
+`;
 
-    @media(max-width:1100px){
+export const MenuOption = styled(noLinkStyle)`
+    padding: 10px 20px;
+    position:relative;
+    white-space: nowrap;
+
+    @media(max-width:${screenSizes.large}px){
         padding: 10px 5px;
+    }
+`;
+
+export const MenuIconLink = styled(noLinkStyle)``;
+
+export const MenuIcon = styled(Menu)`
+    &&{
+        font-size: 20pt;
     }
 `;
 
 export const Logo = styled.img`
     height: 50px;
+`;
+
+export const DropMenu = styled.div`
+    flex:1;
+    display:flex;
+    height: 60vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const DropMenuOption = styled(noLinkStyle)`
+    flex:1;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    background-color: white;
+    border-top: 1px solid #ccc;
 `;
