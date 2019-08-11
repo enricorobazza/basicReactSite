@@ -41,6 +41,9 @@ const Header = ()=>{
                                 return (
                                     <MenuOption>
                                         <Link
+                                            style={
+                                                {padding:"10px 20px"}
+                                            }
                                             activeClass="active"
                                             to={index+1}
                                             smooth={true}

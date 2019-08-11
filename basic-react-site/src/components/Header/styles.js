@@ -13,6 +13,7 @@ export const Container = styled.div`
     box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
     font-weight: 400;
     font-size: 12px;
+    z-index:10;
 `;
 
 export const TopMenu = styled.div`
@@ -63,7 +64,7 @@ const noLinkStyle = styled.a`
 `;
 
 export const MenuOption = styled(noLinkStyle)`
-    padding: 10px 20px;
+    // padding: 10px 20px;
     position:relative;
     white-space: nowrap;
 

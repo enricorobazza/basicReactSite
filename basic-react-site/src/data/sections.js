@@ -1,7 +1,11 @@
 export const sectionsData = [{
     title:"Salão Geral",
     text: "O Buffet Estação Cuco Maluko está situado em um espaço único. O salão é uma linda construção histórica tombada pelo patrimônio de São Carlos. O espaço interno, térreo e climatizado, é o encontro do rústico com o moderno e, de forma integrada, acomoda até 150 convidados. A área externa possui um amplo jardim, com estacionamento fechado e espaço reservado para as crianças.",
-    images: ["http://www.cucomaluko.com.br/wordpress/wp-content/uploads/2019/08/sala%CC%83o-geral.4.jpeg"]
+    images: [
+        "http://www.cucomaluko.com.br/wordpress/wp-content/uploads/2019/08/sala%CC%83o-geral.1.jpg",
+        "https://i2.wp.com/www.cucomaluko.com.br/wordpress/wp-content/uploads/2019/06/estacao-3.jpg?zoom=2&resize=732%2C486",
+        "https://i0.wp.com/www.cucomaluko.com.br/wordpress/wp-content/uploads/2019/06/esta%C3%A7%C3%A3o-5.jpg?zoom=2&resize=732%2C486"
+    ]
 },
 {
     title:"Brinquedos",
