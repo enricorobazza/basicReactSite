@@ -1,31 +1,24 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Container, LeftMenu, RightMenu, MenuOption, Logo, MenuIcon, MenuIconLink, DropMenu, DropMenuOption, TopMenu} from './styles.js';
 import {screenSizes} from '../../settings';
 import {Motion, spring} from 'react-motion';
+import WidthStoreContext from '../../stores/WidthStore';
+import { Link } from "react-scroll";
 
-function Header() {
-
-    //const [itens, setItens] = useState([]);
-
-    const [width, setWidth] = useState(window.innerWidth);
+const Header = ()=>{
+    const width = useContext(WidthStoreContext);
     const [menuDroped, setMenuDroped] = useState(false);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setWidth(window.innerWidth);
-            if(window.innerWidth > screenSizes.small) setMenuDroped(false);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-    });
+    useEffect(()=>{
+        if(width >= screenSizes.medium) setMenuDroped(false);
+    }, [width])
 
     const itens = [
         "SALÃO GERAL",
         "BRINQUEDOS",
         "RECREAÇÃO",
         "GASTRONOMIA",
+        "ESTACIONAMENTO",
         "SERVIÇOS",
         "MAPA LOCAL",
         "CONTATO"
@@ -43,16 +36,27 @@ function Header() {
                     <LeftMenu><Logo src="https://i2.wp.com/www.cucomaluko.com.br/wordpress/wp-content/uploads/2019/03/cropped-apenas-cuco2-copy.png" /></LeftMenu>
                     <RightMenu>
                         {
-                            itens.map((item) => {
-                                if(width > screenSizes.small)
+                            itens.map((item, index) => {
+                                if(width >= screenSizes.medium)
                                 return (
-                                    <MenuOption href={"#"+item} key={item}>{item}</MenuOption>
+                                    <MenuOption>
+                                        <Link
+                                            activeClass="active"
+                                            to={index+1}
+                                            smooth={true}
+                                            offset={-70}
+                                            duration= {500}
+                                            key={index}
+                                        >
+                                            {item}
+                                        </Link>
+                                    </MenuOption>
                                 );
                                 else return (<></>);
                             })
 
                         }
-                        {width < screenSizes.small && <MenuIconLink onClick={menuIconClick} href="#"><MenuIcon /></MenuIconLink>}
+                        {width < screenSizes.medium && <MenuIconLink onClick={menuIconClick} href="#"><MenuIcon /></MenuIconLink>}
                         
                     </RightMenu>
                 </TopMenu>
@@ -62,9 +66,20 @@ function Header() {
                         {(style)=>(
                             <DropMenu style={{height: `${style.marginTop}vh`, opacity: style.opacity}}> 
                             {
-                                itens.map((item) => {
+                                itens.map((item, index) => {
                                     return (
-                                        <DropMenuOption href={"#"+item} key={item}>{item}</DropMenuOption>
+                                        <DropMenuOption>
+                                            <Link
+                                                style={{width:"100%", textAlign:'center'}}
+                                                activeClass="active"
+                                                to={index+1}
+                                                smooth={true}
+                                                offset={-70}
+                                                duration= {500}
+                                                key={index}
+                                                onClick={()=>{setMenuDroped(false)}}
+                                            >{item}</Link>
+                                        </DropMenuOption>
                                     );
                                 })
                             }

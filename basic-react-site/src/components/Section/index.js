@@ -1,34 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-
-const Container = styled.div`
-    background-color:${props => props.color || "black"};
-    display:flex;
-    flex-direction: row;
-    align-items: stretch;
-`;
-
-const Box = styled.div`
-    flex:1;
-`;
-
-const Image = styled.img`
-    width: 100%;
-    height: auto;
-`;
-
+import React, {useContext} from 'react';
+import WidthStoreContext from '../../stores/WidthStore';
+import { screenSizes } from '../../settings';
+import { Container, Box, BoxText, Image, Frame, Title, Text } from './styles';
 
 function Section(props){
+    const width = useContext(WidthStoreContext);
     const {section} = props;
+
+    function renderImageOrMap(section){
+        if(section.images) return(<Box><Image src={section.images[0]} /></Box>);
+        else if(section.map) return(<Box><Frame src={section.map} frameborder="0" allowfullscreen="allowfullscreen"></Frame></Box>);
+        else return(<></>);
+    }
+
+    const renderFirst = !props.left || width < screenSizes.xsmall;
     return(
         <>
-            <Container color={section.color}>
-                {!props.left && <Box><Image src={section.images[0]} /></Box>}
+            <Container id={props.id} color={section.color}>
+                { renderFirst && renderImageOrMap(section) }
                 <Box>
-                    <h1>{section.title}</h1>
-                    <span>{section.text}</span>
+                    <BoxText>
+                        <Title>{section.title}</Title>
+                        <Text>{section.text}</Text>
+                    </BoxText>
                 </Box>
-                {props.left && <Box><Image src={section.images[0]} /></Box>}
+                { !renderFirst && renderImageOrMap(section) }
             </Container>
         </>
     );

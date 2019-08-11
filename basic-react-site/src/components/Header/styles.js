@@ -27,11 +27,11 @@ const MenuWrapper = styled.div`
     margin: 0 80px;
 
     @media(max-width:${screenSizes.large}px){
-        margin: 0 40px;
+        margin: 0 20px;
     }
 
     @media(max-width:${screenSizes.medium}px){
-        margin: 0 20px;
+        margin: 0 10px;
     }
 `;
 
@@ -47,7 +47,7 @@ export const RightMenu = styled(MenuWrapper)`
     justify-content: space-between;
     align-items: center;
 
-    @media(max-width:${screenSizes.small}px){
+    @media(max-width:${screenSizes.medium}px){
         justify-content: flex-end;
     }
 `;
@@ -55,6 +55,7 @@ export const RightMenu = styled(MenuWrapper)`
 const noLinkStyle = styled.a`
     text-decoration:none;
     color: black;
+    cursor:pointer;
 
     &:hover{
         color: #3e62a8;
