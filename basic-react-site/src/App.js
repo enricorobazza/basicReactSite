@@ -1,9 +1,8 @@
 import React from 'react';
-import Header from './components/Header';
-import Content from './components/Content';
 import { createGlobalStyle } from "styled-components";
 import WidthStoreContext  from './stores/WidthStore';
 import useWindowWidth from 'use-window-width';
+import Routes from './routes';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -18,8 +17,7 @@ const App = ()=>{
     <>
       <GlobalStyles/>
       <WidthStoreContext.Provider value={width}>
-        <Header></Header>
-        <Content></Content>
+        <Routes />
       </WidthStoreContext.Provider>
     </>
   );

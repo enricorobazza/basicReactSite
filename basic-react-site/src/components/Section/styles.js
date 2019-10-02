@@ -67,25 +67,3 @@ font-size: 16px;
     font-size: 12px;
 }
 `;
-
-export const Frame = styled.iframe`
-width: 100%;
-border: 0;
-height: 500px;
-
-@media(max-width:${screenSizes.large}px){
-    height: 300px;
-}
-
-@media(max-width:${screenSizes.medium}px){
-    height: 300px;
-}
-
-@media(max-width:${screenSizes.small}px){
-    height: 200px;
-}
-
-@media(max-width:${screenSizes.xsmall}px){
-    height: 300px;
-}
-`;

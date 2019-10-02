@@ -10,11 +10,13 @@
     "react-dom": "^16.8.6",
     "react-motion": "^0.5.2",
     "react-overflow": "^0.2.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-scroll": "^1.7.12",
     "styled-components": "^4.3.2",
     "use-window-width": "^1.0.0"
   },
+  "homepage": "https://cucomaluko.com.br/react",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

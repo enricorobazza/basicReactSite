@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import WidthStoreContext from '../../stores/WidthStore';
 import { screenSizes } from '../../settings';
-import { Container, Box, BoxText, Image, Frame, Title, Text } from './styles';
+import { Container, Box, BoxText, Image, Title, Text } from './styles';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 
@@ -28,12 +28,11 @@ function Section(props){
         )
     }
 
-    function renderImageOrMap(section){
-        if(section.images){ 
+    function renderImage(section){
+        if(section.images && section.images.length > 0){ 
             if(section.images.length > 1) return renderSlider(section.images);
             else return(<Box><Image src={section.images[0]} /></Box>);
         }
-        else if(section.map) return(<Box><Frame src={section.map} frameborder="0" allowfullscreen="allowfullscreen"></Frame></Box>);
         else return(<></>);
     }
 
@@ -41,14 +40,14 @@ function Section(props){
     return(
         <>
             <Container id={props.id} color={section.color}>
-                { renderFirst && renderImageOrMap(section) }
+                { renderFirst && renderImage(section) }
                 <Box>
                     <BoxText>
                         <Title>{section.title}</Title>
                         <Text>{section.text}</Text>
                     </BoxText>
                 </Box>
-                { !renderFirst && renderImageOrMap(section) }
+                { !renderFirst && renderImage(section) }
             </Container>
         </>
     );
