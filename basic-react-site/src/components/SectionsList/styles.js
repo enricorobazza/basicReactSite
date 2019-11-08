@@ -47,3 +47,8 @@ export const Select = styled.select`
     font-weight: 300;
     font-size: 19pt;
 `;
+
+export const DivCentered = styled.div`
+    text-align:center;
+    margin-top:100px;
+`;

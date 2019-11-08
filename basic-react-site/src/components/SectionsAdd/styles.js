@@ -35,3 +35,8 @@ export const Button = styled.button`
     background-color:#34495e;
     margin: 20px auto;
 `;
+
+export const DivCentered = styled.div`
+    text-align:center;
+    margin-top:50px;
+`;

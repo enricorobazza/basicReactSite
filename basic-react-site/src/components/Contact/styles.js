@@ -69,8 +69,24 @@ export const Button = styled.button`
     border: 0;
     padding: 20px 10px;
     font-size: 16px;
-    background-color: #f1c40f;
+    background-color: ${props => props.disabled ? "#ccc" : "#f1c40f"};
     color: #333;
     border-radius: 5px;
-    cursor: pointer;
+    cursor:  ${props => props.disabled ? "default" : "pointer"};
+`;
+
+
+export const MessageOK = styled.span`
+    color: #2ecc71;
+    font-size:14pt;
+`;
+
+export const MessageERROR = styled.span`
+    color: #e74c3c;
+    font-size:14pt;
+`;
+
+export const Message = styled.span`
+    font-size:14pt;
+    color: white
 `;

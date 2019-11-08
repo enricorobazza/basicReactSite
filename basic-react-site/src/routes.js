@@ -12,7 +12,7 @@ function Routes(){
         <>
             <BrowserRouter>
             <Switch>
-                <Route path={base_url} exact={true} component={Main} />
+                <Route path={base_url+"/"} exact={true} component={Main} />
                 <Route path={base_url+"/estacao-cuco-maluko"} exact={true} component={Estacao} />
                 <Route path={base_url + "/cuco-maluko"} exact={true} component={Cuco} />
                 <Route path={base_url+"/admin/:sectionId"} component={Admin} />
